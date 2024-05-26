@@ -1,0 +1,34 @@
+<app-auth-layout>
+  <div class="w-1/2 h-auto p-12 px-32 bg-black rounded-2xl">
+    <h2 class="font-bold text-3xl mb-4">Signin X</h2>
+    <div>
+      <input
+        type="text"
+        class="border border-slate-200 outline-none p-4 h-12 w-full mb-6 bg-black rounded-lg focus:border-sky-500"
+        placeholder="Email or Username"
+        [(ngModel)]="usernameOrEmail"
+        required
+      />
+      <input
+        type="password"
+        class="border border-slate-200 outline-none p-4 h-12 w-full mb-6 bg-black rounded-lg focus:border-sky-500"
+        placeholder="Password"
+        [(ngModel)]="password"
+        required
+      />
+      <button
+        type="button"
+        (click)="submitSignin()"
+        class="p-4 w-full rounded-2xl mb-2 text-center text-black bg-white"
+      >
+        Login
+      </button>
+      <p>
+        don&apos;t have an account?
+        <span class="text-sky-500">
+          <a href="/signup">Signup</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</app-auth-layout>

@@ -1,0 +1,48 @@
+<div
+  class="fixed top-0 left-0 right-0 bottom-0 h-full w-full z-50"
+  (click)="setIsModalEdit(false)"
+>
+  <div class="bg-gray-800 opacity-50 h-full w-full absolute"></div>
+  <div
+    class="p-4 absolute top-12 left-2/4 z-[1000] transform -translate-x-1/2 border rounded-2xl bg-black bg-opacity-90 backdrop-filter backdrop-blur-lg"
+    (click)="onClick($event)"
+  >
+    <h2 class="font-bold text-lg mb-4">Update your Profile</h2>
+    <div class="flex gap-2 items-center mb-4">
+      <p class="w-20">Username:</p>
+      <input
+        class="p-2 bg-black border border-slate-50 rounded-lg"
+        type="text"
+        placeholder="Enter your username"
+        [(ngModel)]="username"
+      />
+    </div>
+    <div class="flex gap-2 items-center mb-4">
+      <p class="w-20">Email:</p>
+      <input
+        class="p-2 bg-black border border-slate-50 rounded-lg"
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+      />
+    </div>
+    <div class="flex gap-2 items-center mb-4">
+      <p class="w-20">Bio:</p>
+      <input
+        class="p-2 bg-black border border-slate-50 rounded-lg"
+        type="text"
+        placeholder="Enter your bio"
+        [(ngModel)]="bio"
+      />
+    </div>
+    <div class="flex items-center justify-end mt-4">
+      <button
+        (click)="onSubmitEdit()"
+        class="p-2 bg-sky-500 hover:bg-sky-700 rounded-2xl font-medium text-lg"
+        type="button"
+      >
+        Update
+      </button>
+    </div>
+  </div>
+</div>

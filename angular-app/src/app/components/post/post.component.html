@@ -1,0 +1,67 @@
+<div class="p-4 border-b border-slate-50 hover:bg-[#181818]">
+  <div class="flex gap-2">
+    <div class="avatar-sm"></div>
+    <div class="flex-1">
+      <a [href]="'/post/' + post._id">
+        <div class="flex items-center justify-between">
+          <a [href]="'/profile/' + post.userId">
+            <h4 class="font-bold uppercase">
+              {{ post.username || user.username }}
+            </h4>
+          </a>
+          @if(user.userId == post.userId){
+          <button (click)="deleteHandler($event, post)">
+            <i class="pi pi-trash" style="font-size: 1rem; color: red"></i>
+          </button>
+
+          }
+        </div>
+        <p>{{ post.desc }}</p>
+        <div class="flex">
+          <ng-container *ngFor="let tag of post.tags; let i = index">
+            <a key="i" href="" class="text-sky-500 font-bold mr-2">
+              {{ tag }}
+            </a>
+          </ng-container>
+        </div>
+      </a>
+
+      <div class="flex gap-2 mt-2 justify-between">
+        <button
+          (click)="setIsModalComment(true); setPostId(post._id)"
+          class="flex-center h-12 w-12 rounded-full hover:text-sky-500"
+        >
+          <i class="pi pi-comment" style="font-size: 1.5rem"></i>
+        </button>
+        <button
+          (click)="
+            likeHandler(post.likedByCurrentUser ? 'unlike' : 'like', post)
+          "
+          class="flex-center h-12 w-12 rounded-full hover:text-red-700"
+        >
+          @if (post.likedByCurrentUser) {
+          <i class="pi pi-heart-fill" style="font-size: 1.5rem; color: red"></i>
+          }@else{
+          <i class="pi pi-heart" style="font-size: 1.5rem"></i>
+          }
+          <span class="mx-2">{{ post.likesCount }}</span>
+        </button>
+        <button
+          (click)="
+            saveHandler(post.savedByCurrentUser ? 'unsave' : 'save', post)
+          "
+          class="flex-center h-12 w-12 rounded-full hover:text-yellow-500"
+        >
+          @if (post.savedByCurrentUser) {
+          <i
+            class="pi pi-bookmark-fill"
+            style="font-size: 1.5rem; color: yellow"
+          ></i>
+          }@else{
+          <i class="pi pi-bookmark" style="font-size: 1.5rem"></i>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

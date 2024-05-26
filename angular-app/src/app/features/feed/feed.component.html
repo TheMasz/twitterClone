@@ -1,0 +1,42 @@
+<app-main-layout>
+  <div class="w-full">
+    <div class="flex gap-2">
+      <div class="avatar-sm"></div>
+      <textarea
+        class="mb-4 p-2 flex-1 bg-inherit text-2xl focus:outline-none"
+        name="desc"
+        cols="50"
+        rows="5"
+        placeholder="What is happening?!"
+        [(ngModel)]="desc"
+      ></textarea>
+    </div>
+
+    <hr />
+    <div class="flex items-center justify-end mt-4">
+      <button
+        (click)="onPostSubmit()"
+        class="p-4 bg-sky-500 hover:bg-sky-700 rounded-2xl font-bold text-xl"
+        type="button"
+      >
+        Post
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngFor="let post of posts; let i = index">
+    <app-post
+      [post]="post"
+      [user]="user"
+      [posts]="posts"
+      (setIsModalCommentFn)="setIsModalCommentFn($event)"
+      (setPostIdFn)="setPostIdFn($event)"
+      (setPostsFn)="setPostsFn($event)"
+    />
+  </ng-container>
+  <app-comment-modal
+    *ngIf="IsModalComment"
+    [postId]="postId"
+    (setIsModalCommentFn)="setIsModalCommentFn($event)"
+  />
+</app-main-layout>

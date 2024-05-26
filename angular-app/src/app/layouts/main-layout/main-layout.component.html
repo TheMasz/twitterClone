@@ -1,0 +1,14 @@
+<main class="relative container mx-auto">
+    <div class="flex">
+      <div class="fixed h-screen w-64 bg-black">
+        <app-left-side />
+      </div>
+      <main class=" flex-1 border-l border-r border-slate-300 p-4 ml-64">
+        <ng-content></ng-content>
+      </main>
+      <div class="relative h-screen w-80">
+        <app-right-side />
+      </div>
+    </div>
+  </main>
+  

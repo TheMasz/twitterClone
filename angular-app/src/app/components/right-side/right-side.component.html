@@ -1,0 +1,56 @@
+<section class="p-4">
+  <div class="p-4 rounded-2xl border border-slate-300 mb-6">
+    <h3 class="title-text">Subscribe to Premium</h3>
+    <p class="text-justify mb-4">
+      Subscribe to unlock new features and if eligible, receive a share of ads
+      revenue.
+    </p>
+    <button class="p-2 bg-sky-500 hover:bg-sky-700 rounded-lg">
+      Subscribe
+    </button>
+  </div>
+  <div class="py-4 rounded-2xl border border-slate-300 mb-6">
+    <h3 class="px-4 title-text">Trends for you</h3>
+    <ul>
+      <ng-container *ngFor="let trend of trends">
+        <li class="p-4 rounded-md hover:bg-[#181818]">
+          <a [href]="'/tag/' + removeTag(trend.tag)">
+            <p class="sub-text">Trending in Thailand</p>
+            <p>{{ trend.tag }}</p>
+            <p class="sub-text">{{ trend.count }} posts</p>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="py-4 rounded-2xl border border-slate-300">
+    <h3 class="px-4 title-text mb-2">Suggest people for you</h3>
+    <ul>
+      <ng-container *ngFor="let people of peoples">
+        <li class="p-4 hover:bg-[#181818]">
+          <a
+            [href]="'/profile/' + people._id"
+            class="flex items-center justify-between"
+          >
+            <div class="flex gap-2">
+              <div class="avatar-sm"></div>
+              <h6 class="text-lg font-bold">{{ people.username }}</h6>
+            </div>
+            <button
+              (click)="
+                onFollow(
+                  $event,
+                  people.isFollowing ? 'unfollow' : 'follow',
+                  people._id
+                )
+              "
+              class="p-2 font-medium border border-slate-50 rounded-xl hover:bg-white hover:text-black"
+            >
+              {{ people.isFollowing ? "following" : "follow" }}
+            </button>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</section>

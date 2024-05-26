@@ -1,0 +1,43 @@
+<app-auth-layout>
+  <div class="w-1/2 h-auto p-12 px-32 bg-black rounded-2xl">
+    <h2 class="font-bold text-3xl mb-4">Signup X</h2>
+    <div>
+      <input
+        type="text"
+        [(ngModel)]="email"
+        class="border border-slate-200 outline-none p-4 h-12 w-full mb-6 bg-black rounded-lg focus:border-sky-500"
+        placeholder="Email"
+        required
+      />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        class="border border-slate-200 outline-none p-4 h-12 w-full mb-6 bg-black rounded-lg focus:border-sky-500"
+        placeholder="Password"
+        minLength="8"
+        required
+      />
+      <input
+        type="password"
+        [(ngModel)]="cf_password"
+        class="border border-slate-200 outline-none p-4 h-12 w-full mb-6 bg-black rounded-lg focus:border-sky-500"
+        placeholder="Confirm Password"
+        minLength="8"
+        required
+      />
+      <button
+        type="button"
+        (click)="submitSignup()"
+        class="p-4 w-full rounded-2xl mb-2 text-center text-black bg-white"
+      >
+        Register
+      </button>
+      <p>
+        Already have an account?
+        <span class="text-sky-500">
+          <a href="/signin">Signin</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</app-auth-layout>

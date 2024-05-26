@@ -1,0 +1,57 @@
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --main-text-color: #fff;
+    --sub-text-color: #71767b;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav > li {
+  list-style: none;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .avatar-sm {
+    @apply w-10 h-10 max-w-8 max-h-8  min-w-8 min-h-8   rounded-full bg-white;
+  }
+  .avatar-lg {
+    @apply w-24 h-24 max-w-20 max-h-20  min-w-20 min-h-20   rounded-full bg-white;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .title-text {
+    @apply text-xl text-[var(--main-text-color)] font-bold;
+  }
+  .sub-text {
+    @apply text-[14px] font-medium text-[var(--sub-text-color)];
+  }
+}

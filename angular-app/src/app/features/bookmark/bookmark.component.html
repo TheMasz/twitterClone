@@ -1,0 +1,27 @@
+<app-main-layout>
+  <section>
+    <div class="flex items-center gap-2">
+      <app-back-button />
+      <h2 class="font-bold text-lg">Saved Posts</h2>
+    </div>
+    <div *ngIf="posts.length === 0" class="py-12 flex-col flex-center">
+      <i class="pi pi-calendar" style="font-size: 2rem"></i>
+      <h3 class="text-2xl font-bold">Keep your posts do you like.</h3>
+    </div>
+    <ng-container *ngFor="let post of posts">
+      <app-post
+        [posts]="posts"
+        [post]="post"
+        [user]="user"
+        (setIsModalCommentFn)="setIsModalCommentFn($event)"
+        (setPostIdFn)="setPostIdFn($event)"
+        (setPostsFn)="setPostsFn($event)"
+      />
+    </ng-container>
+    <app-comment-modal
+      *ngIf="IsModalComment"
+      [postId]="postId"
+      (setIsModalCommentFn)="setIsModalCommentFn($event)"
+    />
+  </section>
+</app-main-layout>

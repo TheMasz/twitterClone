@@ -1,0 +1,69 @@
+<section class="flex flex-col p-4">
+  <nav class="p-4 flex-1">
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/"> x </a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Home</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Search</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Notifications</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Messages</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Lists</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/bookmarks">Bookmarks</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Communities</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">Premium</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a [href]="'/profile/' + user.userId">Profile</a>
+    </li>
+    <li class="flex items-center gap-4 text-xl font-bold py-4 hover:underline">
+      <a href="/">More</a>
+    </li>
+    <li class="py-4">
+      <button
+        class="p-4 font-medium text-xl bg-sky-500 w-full rounded-xl hover:bg-sky-700"
+      >
+        Post
+      </button>
+    </li>
+  </nav>
+  <div
+    (click)="logout()"
+    class="relative flex justify-between items-center p-4 rounded-lg cursor-pointer"
+  >
+    <div class="flex gap-2 items-center">
+      <div class="avatar-sm"></div>
+      <div>
+        <p class="uppercase">{{ user.username }}</p>
+        <p>&commat;{{ user.username }}</p>
+      </div>
+    </div>
+    <button class="hover:bg-[#181818] p-2 rounded-full"></button>
+    <!-- {isMenu && (
+        <ul class="absolute right-[-80px] rounded-lg border border-slate-50 bg-black">
+          <li class="p-2 border-b hover:bg-[#181818] rounded-lg text-center">
+            <a href={`/home/profile/${user?.id}`}>My Profile</a>
+          </li>
+          <li class="p-2 border-b hover:bg-[#181818] rounded-lg text-center">
+            <button type="button" onClick={() => logoutHandler()}>
+              Logout
+            </button>
+          </li>
+        </ul>
+      )} -->
+  </div>
+</section>
