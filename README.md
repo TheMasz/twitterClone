@@ -7,6 +7,7 @@ This project is a Twitter clone developed for learning purposes. It provides an 
 - Following and unfollowing other users
 - Liking posts
 - User profiles
+  
 **Technologies Used**
 - Frontend: NextJS and Angular
 - Backend: ExpressJS
